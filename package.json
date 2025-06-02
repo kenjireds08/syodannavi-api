@@ -1,0 +1,22 @@
+{
+  "name": "syodannavi-api",
+  "version": "1.0.0",
+  "description": "このリポジトリは、商談ナビアプリケーションのバックエンドAPIです。 話者分離付き文字起こし、商談分析などの機能を提供します。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "typescript": "^5.8.3",
+    "vercel": "^42.3.0"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.27.0",
+    "microsoft-cognitiveservices-speech-sdk": "^1.44.0",
+    "openai": "^5.0.1"
+  }
+}
