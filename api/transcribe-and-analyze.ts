@@ -25,16 +25,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Azure Speech SDKの設定
   const speechConfig = sdk.SpeechConfig.fromSubscription(
-    AZURE_SPEECH_KEY,
-    AZURE_SPEECH_REGION
+    AZURE_SPEECH_KEY!,
+    AZURE_SPEECH_REGION!
   );
-  speechConfig.endpointId = AZURE_SPEECH_ENDPOINT;
+  speechConfig.endpointId = AZURE_SPEECH_ENDPOINT!;
   speechConfig.speechRecognitionLanguage = 'ja-JP';
 
   // 話者分離オプションを有効化
-  const conversationTranscriberConfig = new sdk.ConversationTranscriberConfig();
-  conversationTranscriberConfig.setProperty(
-    sdk.PropertyId.SpeechServiceConnection_SpeakerDiarizationMode,
+  speechConfig.setProperty(
+    sdk.PropertyId.SpeechServiceConnection_SpeakerIdMode,
     'Conversation'
   );
 
@@ -44,13 +43,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   pushStream.close();
 
   const audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
-  const recognizer = new sdk.ConversationTranscriber(speechConfig, audioConfig, conversationTranscriberConfig);
+  const recognizer = new sdk.ConversationTranscriber(speechConfig, audioConfig);
 
   let resultText = '';
   let speakerLabels: string[] = [];
 
   recognizer.transcribed = (s, e) => {
-    if (e.result.reason === sdk.ResultReason.TranscribedSpeech) {
+    if (e.result.reason === sdk.ResultReason.RecognizedSpeech) {
       resultText += e.result.text + '\n';
       if (e.result.speakerId && !speakerLabels.includes(e.result.speakerId)) {
         speakerLabels.push(e.result.speakerId);
