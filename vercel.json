@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "framework": "other",
+  "buildCommand": "npm run vercel-build || npm run build",
+  "outputDirectory": "public",
+  "installCommand": "npm install",
   "builds": [
     {
       "src": "api/**/*.ts",
