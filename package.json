@@ -19,5 +19,8 @@
     "@vercel/node": "^5.2.1",
     "microsoft-cognitiveservices-speech-sdk": "^1.44.0",
     "openai": "^5.0.1"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
