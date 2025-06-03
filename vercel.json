@@ -3,7 +3,7 @@
   "engines": {
     "node": "20.x"
   },
-  "buildCommand": "npm run vercel-build || npm run build",
+  "buildCommand": "",
   "installCommand": "npm install",
   "builds": [
     {
