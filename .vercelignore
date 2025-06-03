@@ -1,0 +1,19 @@
+node_modules
+.env
+*.env.*
+!.env.production
+!.env.development
+
+# Ignore build output directory if it's not the default .vercel/output
+# If your outDir in tsconfig.json is, for example, 'dist', 
+# and you want Vercel to use that, then DO NOT add 'dist' here.
+# Vercel will automatically handle the .vercel/output directory.
+
+# Ignore specific files or patterns
+.DS_Store
+*.log
+local-debug-*
+
+# Ignore test files
+**/*.test.ts
+**/*.spec.ts
