@@ -3,6 +3,8 @@
   "engines": {
     "node": "20.x"
   },
+  "buildCommand": "npm run vercel-build || npm run build",
+  "installCommand": "npm install",
   "builds": [
     {
       "src": "api/**/*.ts",
