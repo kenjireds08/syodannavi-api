@@ -3,8 +3,6 @@
   "engines": {
     "node": "20.x"
   },
-  "buildCommand": "",
-  "installCommand": "npm install",
   "routes": [
     {
       "src": "/api/(.*)",
