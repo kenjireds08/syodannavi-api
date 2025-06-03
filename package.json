@@ -4,7 +4,8 @@
   "description": "このリポジトリは、商談ナビアプリケーションのバックエンドAPIです。 話者分離付き文字起こし、商談分析などの機能を提供します。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vercel-build": "tsc --project tsconfig.json"
   },
   "keywords": [],
   "author": "",
